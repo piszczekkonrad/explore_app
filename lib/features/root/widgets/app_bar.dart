@@ -13,7 +13,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dh = MediaQuery.of(context).size.height;
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
@@ -24,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           IconButton(
             icon: SvgPicture.asset(
               'assets/custom_icons/back_arrow.svg',
-              colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn,)
+              colorFilter: const ColorFilter.mode(Colors.blue, BlendMode.srcIn,)
             ),
             onPressed: () {},
           ),
@@ -33,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           IconButton(
             icon: SvgPicture.asset(
               'assets/custom_icons/search.svg',
-              colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),
             ),
             onPressed: () {},
           ),

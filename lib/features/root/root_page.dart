@@ -44,7 +44,7 @@ class _RootPageState extends State<RootPage> {
 
     }
   }
-  final _screens = [
+  final _screens = const [
     HomePage(),
     NewsPage(),
     EventsPage(),
