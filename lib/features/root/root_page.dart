@@ -2,6 +2,7 @@ import 'package:explore_app/features/events/events_page.dart';
 import 'package:explore_app/features/explore/explore_page.dart';
 import 'package:explore_app/features/home/home_page.dart';
 import 'package:explore_app/features/news/news_page.dart';
+import 'package:explore_app/features/root/widgets/app_bar.dart';
 import 'package:explore_app/features/root/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -55,10 +56,7 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(title)
-      ),
+      appBar: CustomAppBar(title: title,),
       body: SingleChildScrollView(
           child: _screens[_selectedIndex]
       ),
