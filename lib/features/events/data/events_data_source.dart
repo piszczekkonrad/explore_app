@@ -1,3 +1,7 @@
+
+import 'package:injectable/injectable.dart';
+
+@injectable
 class EventsDataSource{
   List<String> getHorizontalScrollableImages () {
     return [
