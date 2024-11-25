@@ -1,4 +1,3 @@
-import 'package:explore_app/features/events/cubit/events_cubit.dart';
 import 'package:explore_app/features/events/widgets/event_list_view_element.dart';
 import 'package:explore_app/features/events/widgets/horizontal_scrollable_images_row.dart';
 import 'package:explore_app/features/events/widgets/search_bar_text_field.dart';
@@ -6,6 +5,8 @@ import 'package:explore_app/features/root/widgets/app_bar.dart';
 import 'package:explore_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'cubit/events/events_cubit.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
