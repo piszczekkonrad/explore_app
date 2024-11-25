@@ -5,11 +5,17 @@ part 'events_state.dart';
 
 @injectable
 class EventsCubit extends Cubit<EventsState> {
-  EventsCubit(this.eventsRepository)
+  EventsCubit(this._eventsRepository)
       : super(EventsState(
     horizontalScrollableImages: [],
   ));
 
-final EventsRepository eventsRepository;
+final EventsRepository _eventsRepository;
+
+ void start () async {
+   final horizontalScrollableImages = _eventsRepository.getHorizontalScrollableImages();
+   emit(EventsState(horizontalScrollableImages: horizontalScrollableImages));
+
+ }
 
 }
