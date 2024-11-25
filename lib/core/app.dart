@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../features/root/root_page.dart';
 
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
+        fontFamily: GoogleFonts.roboto().fontFamily,
       ),
       home: const RootPage(title: 'Flutter Demo Home Page'),
     );
