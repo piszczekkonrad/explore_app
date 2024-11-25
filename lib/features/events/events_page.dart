@@ -10,7 +10,10 @@ class EventsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
     final dh = MediaQuery.of(context).size.height;
+    final dw = MediaQuery.of(context).size.width;
     return BlocProvider<EventsCubit>(
       create: (_) => getIt()..start(),
       child: BlocBuilder<EventsCubit, EventsState>(builder: (context, state) {
@@ -21,10 +24,15 @@ class EventsPage extends StatelessWidget {
                 horizontalScrollableImages: state.horizontalScrollableImages,
               ),
               for (final event in state.eventsModels) ...[
-                EventsListViewElement(
-                  event: event,
-                  dh: dh,
-                )
+                isPortrait
+                    ? EventsListViewElement(
+                        event: event,
+                        dh: dh,
+                      )
+                    : EventsListViewElement(
+                        event: event,
+                        dh: dw,
+                      )
               ]
             ],
           ),
@@ -33,5 +41,3 @@ class EventsPage extends StatelessWidget {
     );
   }
 }
-
-
