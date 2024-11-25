@@ -1,20 +1,20 @@
 class EventsModel {
-  final String impPath;
+  final String imgPath;
   final String title;
-  final String description;
+  final String place;
   final String date;
   EventsModel({
-    required this.impPath,
+    required this.imgPath,
     required this.title,
-    required this.description,
+    required this.place,
     required this.date,
   });
 
   factory EventsModel.fromJson(Map<String, dynamic> json) {
     return EventsModel(
-      impPath: json['img_path'],
+      imgPath: json['img_path'],
       title: json['title'],
-      description: json['description'],
+      place: json['place'],
       date: json['date'],
     );
   }
