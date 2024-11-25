@@ -4,9 +4,10 @@ import 'package:flutter_svg/svg.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
-    required this.title,
+    required this.title, required this.canShowSearchBar,
   });
   final String title;
+  final Function() canShowSearchBar;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -34,7 +35,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               'assets/custom_icons/search.svg',
               colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),
             ),
-            onPressed: () {},
+            onPressed: () {canShowSearchBar();},
           ),
           IconButton(
             onPressed: () {},

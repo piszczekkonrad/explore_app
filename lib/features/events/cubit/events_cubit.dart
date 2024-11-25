@@ -10,11 +10,12 @@ class EventsCubit extends Cubit<EventsState> {
       : super(EventsState(
           horizontalScrollableImages: [],
           eventsModels: [],
+          showSearchBar: false,
         ));
 
   final EventsRepository _eventsRepository;
 
-  void start() async {
+  void start() {
     final horizontalScrollableImages =
         _eventsRepository.getHorizontalScrollableImages();
     final eventsList = _eventsRepository.getEventsList();
@@ -22,7 +23,28 @@ class EventsCubit extends Cubit<EventsState> {
       EventsState(
         horizontalScrollableImages: horizontalScrollableImages,
         eventsModels: eventsList,
+        showSearchBar: false,
       ),
     );
+  }
+
+  void canShowSearchBar() {
+    if(state.showSearchBar) {
+      emit(
+        EventsState(
+          horizontalScrollableImages: state.horizontalScrollableImages,
+          eventsModels: state.eventsModels,
+          showSearchBar: false,
+        ),
+      );
+    } else {
+      emit(
+        EventsState(
+          horizontalScrollableImages: state.horizontalScrollableImages,
+          eventsModels: state.eventsModels,
+          showSearchBar: true,
+        ),
+      );
+    }
   }
 }

@@ -6,4 +6,5 @@ google_fonts library used to apply roboto font.
 
 flutter_bloc used for state management.
 
-injectable package used for GetIt. Build runner needs to be run before app can compile.
+injectable package used for dependency injection. Build runner needs to be run before app can compile.
+
