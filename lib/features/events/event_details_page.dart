@@ -12,9 +12,7 @@ class EventDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
-    final dh = MediaQuery.of(context).size.height;
     final dw = MediaQuery.of(context).size.width;
-    final searchController = TextEditingController();
     return BlocProvider<EventDetailsCubit>(
       create: (_) => getIt()..start(),
       child: BlocBuilder<EventDetailsCubit, EventDetailsState>(
@@ -25,21 +23,29 @@ class EventDetailsPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: isPortrait
+                      ? CrossAxisAlignment.start
+                      : CrossAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: SvgPicture.asset(
-                        'assets/custom_icons/back_arrow.svg',
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: SvgPicture.asset(
+                          'assets/custom_icons/back_arrow.svg',
+                        ),
                       ),
                     ),
-                    Text(
-                      state.eventModel.title,
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w700,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                      child: Text(
+                        state.eventModel.title,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                     Text(
@@ -49,19 +55,25 @@ class EventDetailsPage extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    Text(
-                      '${state.eventModel.date} | ${state.eventModel.time}',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800,
-                        color: Color.fromRGBO(0, 102, 177, 1),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8,),
+                      child: Text(
+                        '${state.eventModel.date} | ${state.eventModel.time}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                          color: Color.fromRGBO(0, 102, 177, 1),
+                        ),
                       ),
                     ),
-                    Text(
-                      state.eventModel.place,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w300,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                      child: Text(
+                        state.eventModel.place,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     ),
                     Image(
@@ -75,7 +87,10 @@ class EventDetailsPage extends StatelessWidget {
                       children: [
                         const Text(
                           'Wykonawcy:',
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300,),
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -83,7 +98,10 @@ class EventDetailsPage extends StatelessWidget {
                         ),
                         const Text(
                           'Program:',
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300,),
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -91,7 +109,39 @@ class EventDetailsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/custom_icons/bezplatne.svg',
+                          ),
+                          const Text(
+                            'Wydarzenie bezpłatne',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SvgPicture.asset(
+                            'assets/custom_icons/fb.svg',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SvgPicture.asset(
+                            'assets/custom_icons/instagram.svg',
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -104,30 +154,24 @@ class EventDetailsPage extends StatelessWidget {
 
   Widget _buildBulletedList(List<String> items) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: items
           .map(
             (item) => Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              '• ',
-              style: TextStyle(fontSize: 12),
+              children: [
+                const Text(
+                  '• ',
+                  style: TextStyle(fontSize: 14),
+                ),
+                Expanded(
+                  child: Text(
+                    item,
+                    style: const TextStyle(fontSize: 14),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: Text(
-                item,
-                style: const TextStyle(fontSize: 12),
-              ),
-            ),
-          ],
-        ),
-      )
+          )
           .toList(),
     );
   }
 }
-
-
-
-

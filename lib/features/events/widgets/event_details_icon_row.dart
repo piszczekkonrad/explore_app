@@ -25,7 +25,7 @@ class EventDetailsIconRow extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color.fromRGBO(239, 239, 239, 1),
+                      color: Color.fromRGBO(218, 231, 232, 1),
                     ),
                     child: IconButton(
                       iconSize: dw * .1,
@@ -55,7 +55,7 @@ class EventDetailsIconRow extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color.fromRGBO(239, 239, 239, 1),
+                      color: Color.fromRGBO(218, 231, 232, 1),
                     ),
                     child: IconButton(
                       iconSize: dw * .1,
@@ -85,7 +85,7 @@ class EventDetailsIconRow extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color.fromRGBO(239, 239, 239, 1),
+                      color: Color.fromRGBO(218, 231, 232, 1),
                     ),
                     child: IconButton(
                       iconSize: dw * .1,
@@ -115,7 +115,7 @@ class EventDetailsIconRow extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color.fromRGBO(239, 239, 239, 1),
+                      color: Color.fromRGBO(218, 231, 232, 1),
                     ),
                     child: IconButton(
                       iconSize: dw * .1,
