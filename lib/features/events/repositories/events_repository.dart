@@ -1,4 +1,5 @@
 import 'package:explore_app/features/events/data/events_data_source.dart';
+import 'package:explore_app/features/events/models/event_details_model.dart';
 import 'package:explore_app/features/events/models/events_model.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,4 +15,9 @@ class EventsRepository{
   List<EventsModel> getEventsList () {
     return _eventsDataSource.getEventsList();
   }
+
+  EventDetailsModel getEventDetails () {
+    return _eventsDataSource.getEventDetails();
+  }
+
 }
