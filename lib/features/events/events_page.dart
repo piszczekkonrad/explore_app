@@ -9,6 +9,29 @@ class EventsPage extends StatelessWidget{
       child:
       Column(
         children: [
+          SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: []
+
+
+            // widget.courseCardModels
+            //     .map(
+            //       (courseCardModel) =>
+            //       LessonScreenCourseCard(
+            //         courseName: courseCardModel.name!,
+            //         id: courseCardModel.id!,
+            //         courseCardModels:
+            //         widget.courseCardModels,
+            //         image: courseCardModel.image!,
+            //         favoriteModel: GetFavoriteModel(
+            //           favoriteId: 0,
+            //           tilesID: 0,
+            //         ),
+            //       ),
+            // ).toList(),
+          ),
+        )
         ],
       ),
 
