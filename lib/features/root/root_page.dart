@@ -1,9 +1,10 @@
-import 'package:explore_app/features/events/events_page.dart';
 import 'package:explore_app/features/explore/explore_page.dart';
 import 'package:explore_app/features/home/home_page.dart';
 import 'package:explore_app/features/news/news_page.dart';
 import 'package:explore_app/features/root/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+
+import '../events/pages/events_page.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({super.key, required this.title});

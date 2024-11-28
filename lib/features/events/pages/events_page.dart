@@ -6,7 +6,7 @@ import 'package:explore_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'cubit/events/events_cubit.dart';
+import '../cubit/events/events_cubit.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});

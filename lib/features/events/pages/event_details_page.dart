@@ -3,7 +3,7 @@ import 'package:explore_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'cubit/event_details/event_details_cubit.dart';
+import '../cubit/event_details/event_details_cubit.dart';
 
 class EventDetailsPage extends StatelessWidget {
   const EventDetailsPage({super.key});

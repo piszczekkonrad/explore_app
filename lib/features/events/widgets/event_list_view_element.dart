@@ -1,4 +1,4 @@
-import 'package:explore_app/features/events/event_details_page.dart';
+import 'package:explore_app/features/events/pages/event_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../models/events_model.dart';
