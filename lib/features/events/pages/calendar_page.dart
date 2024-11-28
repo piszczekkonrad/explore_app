@@ -11,8 +11,6 @@ class CalendarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     final dw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: const SimpleAppBar(title: 'Kalendarz imprez'),
@@ -21,9 +19,7 @@ class CalendarPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              crossAxisAlignment: isPortrait
-                  ? CrossAxisAlignment.start
-                  : CrossAxisAlignment.center,
+                  crossAxisAlignment:  CrossAxisAlignment.start,
               children: [
                 const Padding(
                   padding: EdgeInsets.fromLTRB(20, 8, 0, 8),
