@@ -1,6 +1,7 @@
 import 'package:explore_app/features/events/widgets/header2.dart';
 import 'package:explore_app/features/events/widgets/simple_app_bar.dart';
 import 'package:flutter/material.dart';
+import '../widgets/calendar_buttons_row.dart';
 import '../widgets/calendar_content_item.dart';
 import '../widgets/custom_switch.dart';
 import '../widgets/header1.dart';
@@ -86,6 +87,7 @@ al. Korfantego 35, Katowice''',
                   value: 'Brak',
                 ),
                 ThinSpacerLine(dw: dw),
+                const CalendarButtonsRow()
               ],
             ),
           ),
@@ -94,3 +96,5 @@ al. Korfantego 35, Katowice''',
     );
   }
 }
+
+
