@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
+class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SimpleAppBar({
     super.key,
     required this.title,
-    required this.canShowSearchBar,
   });
   final String title;
-  final Function() canShowSearchBar;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -16,6 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       elevation: 0,
       backgroundColor: Colors.transparent,
       title: Row(
@@ -23,35 +22,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-            icon: SvgPicture.asset('assets/custom_icons/back_arrow.svg',
+            icon: SvgPicture.asset('assets/custom_icons/x.svg',
                 colorFilter: const ColorFilter.mode(
                   Colors.blue,
                   BlendMode.srcIn,
-                )),
-            onPressed: () {},
+                )
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
           Text(
             title,
             style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 22,
-            ),
-          ),
-          const Spacer(),
-          IconButton(
-            icon: SvgPicture.asset(
-              'assets/custom_icons/search.svg',
-              colorFilter:
-                  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
-            ),
-            onPressed: () {
-              canShowSearchBar();
-            },
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              'assets/custom_icons/filter.svg',
             ),
           ),
         ],

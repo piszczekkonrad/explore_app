@@ -1,5 +1,10 @@
+import 'package:explore_app/features/events/widgets/header2.dart';
+import 'package:explore_app/features/events/widgets/simple_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../widgets/calendar_content_item.dart';
+import '../widgets/custom_switch.dart';
+import '../widgets/header1.dart';
+import '../widgets/header3.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
@@ -9,76 +14,87 @@ class CalendarPage extends StatelessWidget {
     final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     final dw = MediaQuery.of(context).size.width;
-          return Scaffold(
-            body: SingleChildScrollView(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: isPortrait
-                        ? CrossAxisAlignment.start
-                        : CrossAxisAlignment.center,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                        child: Text(
-                          'Gala muzyki filmowej',
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 1, width: dw*.9,),
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-                        child: Text(
-                          '''Hala widowiskowo-sportowa Spodek
+    return Scaffold(
+      appBar: const SimpleAppBar(title: 'Kalendarz imprez'),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: isPortrait
+                  ? CrossAxisAlignment.start
+                  : CrossAxisAlignment.center,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20, 8, 0, 8),
+                  child: Header1(text: 'Gala muzyki filmowej'),
+                ),
+                CalendarSpacerLine(dw: dw),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20, 8, 0, 8),
+                  child: Text(
+                    '''Hala widowiskowo-sportowa Spodek
 al. Korfantego 35, Katowice''',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/custom_icons/bezplatne.svg',
-                            ),
-                            const Text(
-                              'Wydarzenie bezpłatne',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SvgPicture.asset(
-                              'assets/custom_icons/fb.svg',
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SvgPicture.asset(
-                              'assets/custom_icons/instagram.svg',
-                            ),
-                          ),
-                        ],
-                      ),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+                  child: Row(
+                    children: [
+                      Header2(text: 'Wydarzenie Całodniowe', dw: dw),
+                      const Spacer(),
+                      const CustomSwitch()
                     ],
                   ),
                 ),
-              ),
+                CalendarSpacerLine(dw: dw),
+                const CalendarContentItem(
+                  title: 'Początek',
+                  value: '18.11.24r.',
+                ),
+                ThinSpacerLine(dw: dw),
+                const CalendarContentItem(
+                  title: 'Koniec',
+                  value: '19.11.24r.',
+                ),
+                ThinSpacerLine(dw: dw),
+                Header3(
+                  title: 'Powtarzaj',
+                  dw: dw,
+                  value: 'Nigdy',
+                ),
+                CalendarSpacerLine(dw: dw),
+                Header3(
+                  title: 'Kalendarz',
+                  dw: dw,
+                  value: 'Dom',
+                ),
+                CalendarSpacerLine(dw: dw),
+                const CalendarContentItem(
+                  title: 'Zaproszeni',
+                  value: 'Brak',
+                ),
+                ThinSpacerLine(dw: dw),
+                Header3(
+                  title: 'Alert',
+                  dw: dw,
+                  value: 'W dniu wydarzenia',
+                ),
+                CalendarSpacerLine(dw: dw),
+                const CalendarContentItem(
+                  title: '2. alert',
+                  value: 'Brak',
+                ),
+                ThinSpacerLine(dw: dw),
+              ],
             ),
-          );
+          ),
+        ),
+      ),
+    );
   }
 }

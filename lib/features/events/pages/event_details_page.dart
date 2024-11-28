@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../cubit/event_details/event_details_cubit.dart';
+import '../widgets/header1.dart';
 
 class EventDetailsPage extends StatelessWidget {
   const EventDetailsPage({super.key});
@@ -40,12 +41,8 @@ class EventDetailsPage extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                      child: Text(
-                        state.eventModel.title,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      child: Header1(
+                        text: state.eventModel.title,
                       ),
                     ),
                     Text(
@@ -56,7 +53,9 @@ class EventDetailsPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8,),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                      ),
                       child: Text(
                         '${state.eventModel.date} | ${state.eventModel.time}',
                         style: const TextStyle(
