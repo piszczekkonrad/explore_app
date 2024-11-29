@@ -5,7 +5,10 @@ import '../widgets/filters_expansion_tile.dart';
 import '../widgets/filters_list_tile.dart';
 
 class FiltersPage extends StatelessWidget {
-  const FiltersPage({super.key, required this.updateFilters});
+  const FiltersPage({
+    super.key,
+    required this.updateFilters,
+  });
   final Function(bool, String) updateFilters;
 
   @override
@@ -26,15 +29,30 @@ class FiltersPage extends StatelessWidget {
                   section: 'Kultura',
                   tiles: [
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Sztuki wizualne',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Sztuki wizualne',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Muzyka',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Muzyka',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Muzeum',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Muzeum',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Teatr',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Teatr',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Kino',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Kino',
+                      updateFilters: updateFilters,
+                    ),
                   ],
                 ),
                 FiltersExpansionTile(
@@ -78,23 +96,50 @@ class FiltersPage extends StatelessWidget {
                   section: 'Rodzaj Wydarzenia',
                   tiles: [
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Warsztaty',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Warsztaty',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Targi',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Targi',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Pikniki',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Pikniki',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Kongresy',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Kongresy',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Koncerty',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Koncerty',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Spektakle',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Spektakle',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Wystawy',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Wystawy',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Koferencje',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Koferencje',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Rajdy',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Rajdy',
+                      updateFilters: updateFilters,
+                    ),
                   ],
                 ),
                 // Sekcja 1
@@ -103,9 +148,16 @@ class FiltersPage extends StatelessWidget {
                   section: 'Według wieku',
                   tiles: [
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Dla dzieci',updateFilters: updateFilters,),
+                    FiltersListTile(
+                      filterName: 'Dla dzieci',
+                      updateFilters: updateFilters,
+                    ),
                     ThinSpacerLine(dw: dw),
-                    FiltersListTile(filterName: 'Dla Seniora',updateFilters: updateFilters,),],
+                    FiltersListTile(
+                      filterName: 'Dla Seniora',
+                      updateFilters: updateFilters,
+                    ),
+                  ],
                 ),
                 // Sekcja 2
 
@@ -143,8 +195,3 @@ class ThinSpacerLine extends ListTile {
     );
   }
 }
-
-
-
-
-

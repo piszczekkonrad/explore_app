@@ -16,13 +16,17 @@ class BlueButtonsRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
 
-        TextButton(onPressed: (){}, child:  Text(leftText,
+        TextButton(onPressed: (){
+          Navigator.of(context).pop();
+        }, child:  Text(leftText,
           style: const TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 16,
             color: Color.fromRGBO(0, 102, 177, 1),
           ),),),
-        MaterialButton(onPressed: (){},
+        MaterialButton(onPressed: (){
+          Navigator.of(context).pop();
+          },
           color: const Color.fromRGBO(0, 102, 177, 1),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
           child: Text(rightText,

@@ -32,6 +32,9 @@ class EventsPage extends StatelessWidget {
                   .read<EventsCubit>()
                   .updateFilters(inList: newValue, filter: section);
             },
+            clearFilters: () {
+              context.read<EventsCubit>().start();
+            },
           ),
           body: SingleChildScrollView(
             child: Center(
@@ -44,6 +47,9 @@ class EventsPage extends StatelessWidget {
                       : const SizedBox(
                           height: 0,
                         ),
+                  for (final filter in state.filtersList) ...[
+                    Text(filter),
+                  ],
                   HorizontalScrollableImagesRow(
                     horizontalScrollableImages:
                         state.horizontalScrollableImages,
