@@ -23,17 +23,24 @@ class EventsPage extends StatelessWidget {
       child: BlocBuilder<EventsCubit, EventsState>(builder: (context, state) {
         return Scaffold(
           appBar: CustomAppBar(
-              title: 'Wydarzenia',
-              canShowSearchBar: () {
-                context.read<EventsCubit>().canShowSearchBar();
-              }),
+            title: 'Wydarzenia',
+            canShowSearchBar: () {
+              context.read<EventsCubit>().canShowSearchBar();
+            },
+            updateFilters: (bool newValue, String section) {
+              context
+                  .read<EventsCubit>()
+                  .updateFilters(inList: newValue, filter: section);
+            },
+          ),
           body: SingleChildScrollView(
             child: Center(
               child: Column(
                 children: [
                   state.showSearchBar
                       ? SearchBarTextField(
-                          searchController: searchController,)
+                          searchController: searchController,
+                        )
                       : const SizedBox(
                           height: 0,
                         ),
@@ -61,5 +68,3 @@ class EventsPage extends StatelessWidget {
     );
   }
 }
-
-

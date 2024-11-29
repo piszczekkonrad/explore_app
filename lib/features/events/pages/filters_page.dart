@@ -1,9 +1,12 @@
 import 'package:explore_app/features/events/widgets/simple_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/calendar_buttons_row.dart';
+import '../widgets/filters_expansion_tile.dart';
+import '../widgets/filters_list_tile.dart';
 
 class FiltersPage extends StatelessWidget {
-  const FiltersPage({super.key});
+  const FiltersPage({super.key, required this.updateFilters});
+  final Function(bool, String) updateFilters;
 
   @override
   Widget build(BuildContext context) {
@@ -19,55 +22,93 @@ class FiltersPage extends StatelessWidget {
               children: [
                 // Sekcja 1
                 FiltersExpansionTile(
+                  updateFilters: updateFilters,
                   section: 'Kultura',
                   tiles: [
-                    // FiltersListTile(),
-
-                    //Musisz to ogarnąć z poziomu events cubita, bo te filtry musza mieć state'a. Rozwiąże Ci to też prblem przekazania filtrów do events page'a
-
-
-
-                    const ListTile(
-                      title: Text('Wartość 2: WXYZ'),
-                    ),
-                    const ListTile(
-                      title: Text('Wartość 3: 123'),
-                    ),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Sztuki wizualne',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Muzyka',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Muzeum',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Teatr',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Kino',updateFilters: updateFilters,),
                   ],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Oświata',
+                  tiles: const [],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Ochrona zdrowia',
+                  tiles: const [],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Sport',
+                  tiles: const [],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Turystyka',
+                  tiles: const [],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Gospodarka',
+                  tiles: const [],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Ekologia',
+                  tiles: const [],
+                ),
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Fundusze Europejskie',
+                  tiles: const [],
+                ),
+                // Sekcja 1
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Rodzaj Wydarzenia',
+                  tiles: [
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Warsztaty',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Targi',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Pikniki',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Kongresy',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Koncerty',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Spektakle',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Wystawy',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Koferencje',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Rajdy',updateFilters: updateFilters,),
+                  ],
+                ),
+                // Sekcja 1
+                FiltersExpansionTile(
+                  updateFilters: updateFilters,
+                  section: 'Według wieku',
+                  tiles: [
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Dla dzieci',updateFilters: updateFilters,),
+                    ThinSpacerLine(dw: dw),
+                    FiltersListTile(filterName: 'Dla Seniora',updateFilters: updateFilters,),],
                 ),
                 // Sekcja 2
-                const ExpansionTile(
-                  title: Text(
-                    'Sekcja 2',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  children: [
-                    ListTile(
-                      title: Text('Wartość 1: 67890'),
-                    ),
-                    ListTile(
-                      title: Text('Wartość 2: WXYZ'),
-                    ),
-                    ListTile(
-                      title: Text('Wartość 3: 123'),
-                    ),
-                  ],
-                ),
-                // Sekcja 3
-                const ExpansionTile(
-                  title: Text(
-                    'Sekcja 3',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  children: [
-                    ListTile(
-                      title: Text('Wartość 1: ZZZ'),
-                    ),
-                    ListTile(
-                      title: Text('Wartość 2: 98765'),
-                    ),
-                  ],
-                ),
+
                 const BlueButtonsRow(
                   leftText: 'Wyczyść',
                   rightText: 'Pokaż wyniki (24)',
@@ -81,71 +122,29 @@ class FiltersPage extends StatelessWidget {
   }
 }
 
-class FiltersListTile extends StatefulWidget  {
-  const FiltersListTile({
+class ThinSpacerLine extends ListTile {
+  const ThinSpacerLine({
     super.key,
+    required this.dw,
   });
 
-  @override
-  State<FiltersListTile> createState() => _FiltersListTileState();
-}
+  final double dw;
 
-class _FiltersListTileState extends State<FiltersListTile> {
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: const Text(
-        'Sztuki wizualne',
-        style: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
+    return SizedBox(
+      height: .5,
+      width: dw * .9,
+      child: const DecoratedBox(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(77, 76, 76, 0.4),
         ),
-
       ),
-
-      leading: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Icon(null),
-      ),
-      trailing: Checkbox(value: true, onChanged: (val){}),
     );
   }
 }
 
-class FiltersExpansionTile extends StatefulWidget {
-  const FiltersExpansionTile({
-    super.key,
-    required this.section,
-    required this.tiles,
-  });
 
-  final String section;
-  final List<ListTile> tiles;
 
-  @override
-  State<FiltersExpansionTile> createState() => _FiltersExpansionTileState();
-}
 
-class _FiltersExpansionTileState extends State<FiltersExpansionTile> {
-  bool _value = false;
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionTile(
-        leading: const Icon(Icons.keyboard_arrow_down),
-        trailing: Checkbox(
-            value: _value,
-            onChanged: (bool? newValue) {
-              setState(() {
-                _value = newValue!;
-              });
-            }),
-        title: Text(
-          widget.section,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 14,
-          ),
-        ),
-        children: widget.tiles);
-  }
-}
+

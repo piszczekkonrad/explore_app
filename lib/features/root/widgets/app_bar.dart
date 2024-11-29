@@ -6,10 +6,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     required this.title,
-    required this.canShowSearchBar,
+    required this.canShowSearchBar, required this.updateFilters,
   });
   final String title;
   final Function() canShowSearchBar;
+  final Function (bool, String) updateFilters;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -51,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           IconButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (_) =>const FiltersPage()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) =>FiltersPage(updateFilters: updateFilters,)));
             },
             icon: SvgPicture.asset(
               'assets/custom_icons/filter.svg',
