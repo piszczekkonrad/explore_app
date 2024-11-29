@@ -26,8 +26,8 @@ class _FiltersExpansionTileState extends State<FiltersExpansionTile> {
             ? const Icon(Icons.keyboard_arrow_down)
             : const Icon(null),
         trailing: Checkbox(
-            checkColor: Colors.black,
-            activeColor: Colors.grey,
+            checkColor: const Color.fromRGBO(0, 102, 177, 1),
+            activeColor: const Color.fromRGBO(0, 102, 177, 1),
             value: _value,
             onChanged: (bool? newValue) {
               setState(() {
