@@ -44,6 +44,8 @@ class _ListTileCheckBoxState extends State<ListTileCheckBox> {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
+        checkColor: Colors.black,
+        activeColor: Colors.grey,
         value: _value,
         onChanged: (bool? newValue) {
           setState(() {

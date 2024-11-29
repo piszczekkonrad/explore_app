@@ -21,11 +21,13 @@ class _FiltersExpansionTileState extends State<FiltersExpansionTile> {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      enabled: widget.tiles.isNotEmpty,
+        enabled: widget.tiles.isNotEmpty,
         leading: widget.tiles.isNotEmpty
             ? const Icon(Icons.keyboard_arrow_down)
             : const Icon(null),
         trailing: Checkbox(
+            checkColor: Colors.black,
+            activeColor: Colors.grey,
             value: _value,
             onChanged: (bool? newValue) {
               setState(() {
