@@ -12,6 +12,7 @@ class EventsCubit extends Cubit<EventsState> {
           horizontalScrollableImages: [],
           eventsModels: [],
           showSearchBar: false,
+          filtersList: [],
         ));
 
   final EventsRepository _eventsRepository;
@@ -25,17 +26,19 @@ class EventsCubit extends Cubit<EventsState> {
         horizontalScrollableImages: horizontalScrollableImages,
         eventsModels: eventsList,
         showSearchBar: false,
+        filtersList: [],
       ),
     );
   }
 
   void canShowSearchBar() {
-    if(state.showSearchBar) {
+    if (state.showSearchBar) {
       emit(
         EventsState(
           horizontalScrollableImages: state.horizontalScrollableImages,
           eventsModels: state.eventsModels,
           showSearchBar: false,
+          filtersList: state.filtersList,
         ),
       );
     } else {
@@ -44,8 +47,20 @@ class EventsCubit extends Cubit<EventsState> {
           horizontalScrollableImages: state.horizontalScrollableImages,
           eventsModels: state.eventsModels,
           showSearchBar: true,
+          filtersList: state.filtersList,
         ),
       );
     }
+  }
+
+  void updateFilters({required bool inList, required String filter}) {
+    inList ? state.filtersList.add(filter) : state.filtersList.remove(filter);
+    print(state.filtersList);
+    emit(EventsState(
+      horizontalScrollableImages: state.horizontalScrollableImages,
+      eventsModels: state.eventsModels,
+      showSearchBar: state.showSearchBar,
+      filtersList: state.filtersList,
+    ));
   }
 }
