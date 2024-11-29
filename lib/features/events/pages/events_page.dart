@@ -4,9 +4,7 @@ import 'package:explore_app/features/events/widgets/search_bar_text_field.dart';
 import 'package:explore_app/features/root/widgets/app_bar.dart';
 import 'package:explore_app/injection_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../cubit/events/events_cubit.dart';
 import '../widgets/filter_button.dart';
 

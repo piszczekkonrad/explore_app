@@ -36,7 +36,7 @@ class _EventsListViewElementState extends State<EventsListViewElement> {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_) => EventDetailsPage(),
+              builder: (_) => const EventDetailsPage(),
             ),
           );
         },

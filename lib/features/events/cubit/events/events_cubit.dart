@@ -54,7 +54,6 @@ class EventsCubit extends Cubit<EventsState> {
 
   void updateFilters({required bool inList, required String filter}) {
     inList ? state.filtersList.add(filter) : state.filtersList.remove(filter);
-    print(state.filtersList);
     emit(EventsState(
       horizontalScrollableImages: state.horizontalScrollableImages,
       eventsModels: state.eventsModels,

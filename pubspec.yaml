@@ -20,7 +20,6 @@ dependencies:
   flutter_bloc: ^8.1.6
   injectable: ^2.5.0
   get_it: ^8.0.2
-  device_preview: ^1.2.0
 
 dev_dependencies:
   flutter_test:
