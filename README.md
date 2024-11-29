@@ -1,8 +1,11 @@
 This app is made as a recruitment assessment only.
 
 To run this app, before debbugging run commands in terminal:
+
 flutter clean
+
 flutter pub get
+
 dart run build_runner build
 
 Packages used:
