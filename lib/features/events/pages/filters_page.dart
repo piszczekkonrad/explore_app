@@ -1,6 +1,7 @@
 import 'package:explore_app/features/events/widgets/simple_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/calendar_buttons_row.dart';
+import '../widgets/custom_slider.dart';
 import '../widgets/filters_expansion_tile.dart';
 import '../widgets/filters_list_tile.dart';
 
@@ -142,7 +143,6 @@ class FiltersPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Sekcja 1
                 FiltersExpansionTile(
                   updateFilters: updateFilters,
                   section: 'Według wieku',
@@ -159,8 +159,22 @@ class FiltersPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Sekcja 2
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: Text('Szukaj w odległości od Twojej lokalizacji',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromRGBO(60, 60, 59, 0.7)
+                    ),),
+                ),
 
+                ThinSpacerLine(dw: dw),
+                
+
+                const CustomSlider(),
+
+                ThinSpacerLine(dw: dw),
                 const BlueButtonsRow(
                   leftText: 'Wyczyść',
                   rightText: 'Pokaż wyniki (24)',
@@ -195,3 +209,4 @@ class ThinSpacerLine extends ListTile {
     );
   }
 }
+
