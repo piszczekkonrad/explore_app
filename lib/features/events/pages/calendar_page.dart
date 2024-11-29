@@ -87,7 +87,7 @@ al. Korfantego 35, Katowice''',
                   value: 'Brak',
                 ),
                 ThinSpacerLine(dw: dw),
-                const BlueButtonsRow(leftText: 'Anuluj',rightText: 'Dodaj',)
+                 BlueButtonsRow(leftText: 'Anuluj',rightText: 'Dodaj', clearFilters: () {},)
               ],
             ),
           ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../cubit/events/events_cubit.dart';
-
 class FilterButton extends StatelessWidget {
   const FilterButton({
     super.key,

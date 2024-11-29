@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class BlueButtonsRow extends StatelessWidget {
   const BlueButtonsRow({
-    super.key, required this.leftText, required this.rightText,
+    super.key, required this.leftText, required this.rightText, required this.clearFilters,
   });
   final String leftText;
   final String rightText;
-
+  final Function() clearFilters;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,7 @@ class BlueButtonsRow extends StatelessWidget {
         children: [
 
         TextButton(onPressed: (){
+          clearFilters();
           Navigator.of(context).pop();
         }, child:  Text(leftText,
           style: const TextStyle(

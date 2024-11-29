@@ -58,7 +58,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               clearFilters();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (_) => FiltersPage(
-                        updateFilters: updateFilters,
+                        updateFilters: updateFilters, clearFilters: clearFilters,
 
                       )));
             },

@@ -8,9 +8,10 @@ import '../widgets/filters_list_tile.dart';
 class FiltersPage extends StatelessWidget {
   const FiltersPage({
     super.key,
-    required this.updateFilters,
+    required this.updateFilters, required this.clearFilters,
   });
   final Function(bool, String) updateFilters;
+  final Function() clearFilters;
 
   @override
   Widget build(BuildContext context) {
@@ -175,9 +176,9 @@ class FiltersPage extends StatelessWidget {
                 const CustomSlider(),
 
                 ThinSpacerLine(dw: dw),
-                const BlueButtonsRow(
+                BlueButtonsRow(
                   leftText: 'Wyczyść',
-                  rightText: 'Pokaż wyniki (24)',
+                  rightText: 'Pokaż wyniki (24)', clearFilters: clearFilters,
                 ),
               ],
             ),
