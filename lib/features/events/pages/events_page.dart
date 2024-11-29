@@ -4,9 +4,11 @@ import 'package:explore_app/features/events/widgets/search_bar_text_field.dart';
 import 'package:explore_app/features/root/widgets/app_bar.dart';
 import 'package:explore_app/injection_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/events/events_cubit.dart';
+import '../widgets/filter_button.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
@@ -47,9 +49,25 @@ class EventsPage extends StatelessWidget {
                       : const SizedBox(
                           height: 0,
                         ),
-                  for (final filter in state.filtersList) ...[
-                    Text(filter),
-                  ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          for (final filter in state.filtersList) ...[
+                            FilterButton(
+                              filter: filter,
+                              updateFilters: () {
+                                context.read<EventsCubit>().updateFilters(
+                                    inList: false, filter: filter);
+                              },
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                  ),
                   HorizontalScrollableImagesRow(
                     horizontalScrollableImages:
                         state.horizontalScrollableImages,

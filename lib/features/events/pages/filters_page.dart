@@ -161,16 +161,16 @@ class FiltersPage extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  child: Text('Szukaj w odległości od Twojej lokalizacji',
+                  child: Text(
+                    'Szukaj w odległości od Twojej lokalizacji',
                     style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(60, 60, 59, 0.7)
-                    ),),
+                        color: Color.fromRGBO(60, 60, 59, 0.7)),
+                  ),
                 ),
 
                 ThinSpacerLine(dw: dw),
-                
 
                 const CustomSlider(),
 
@@ -209,4 +209,3 @@ class ThinSpacerLine extends ListTile {
     );
   }
 }
-
